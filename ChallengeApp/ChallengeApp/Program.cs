@@ -1,18 +1,46 @@
-﻿int number = 1458199756;
-string numberInString = number.ToString();
-char[] digitsInNumber = numberInString.ToArray();
-List<char> digits = new() { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+﻿using ChallengeApp;
 
-foreach (var digit in digits)
+var employee1 = new Employee("Benjamin", "Smith", 41);
+var employee2 = new Employee("Susan ", "Williams", 35);
+var employee3 = new Employee("Liam", "Brown", 23);
+var employees = new List<Employee> { employee1, employee2, employee3 };
+
+employee1.AddGrade(10);
+employee1.AddGrade(9);
+employee1.AddGrade(8);
+employee1.AddGrade(9);
+employee1.AddGrade(5);
+
+employee2.AddGrade(10);
+employee2.AddGrade(9);
+employee2.AddGrade(9);
+employee2.AddGrade(10);
+employee2.AddGrade(8);
+
+employee3.AddGrade(9);
+employee3.AddGrade(7);
+employee3.AddGrade(9);
+employee3.AddGrade(9);
+employee3.AddGrade(8);
+
+var employeeWithMaxScore = GetEmployeeWithMaxScore(employees);
+
+Console.WriteLine($"Employee with the highest grade is {employeeWithMaxScore.Name}" +
+                  $"{employeeWithMaxScore.Surname} - {employeeWithMaxScore.Result} points");
+
+static Employee GetEmployeeWithMaxScore(List<Employee> employees)
 {
-    int count = 0;
-    foreach (var digitInNumber in digitsInNumber)
+    var maxResult = 0;
+    Employee employeeWithMaxScore = null!;
+
+    foreach (var employee in employees)
     {
-        if (digitInNumber == digit)
+        maxResult = Math.Max(employee.Result, maxResult);
+        if (maxResult == employee.Result)
         {
-            count++;
+            employeeWithMaxScore = employee;
         }
     }
 
-    Console.WriteLine($"{digit} => {count}");
+    return employeeWithMaxScore;
 }
