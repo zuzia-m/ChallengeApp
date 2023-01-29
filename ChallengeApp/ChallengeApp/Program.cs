@@ -1,46 +1,12 @@
 ﻿using ChallengeApp;
 
-var employee1 = new Employee("Benjamin", "Smith", 41);
-var employee2 = new Employee("Susan ", "Williams", 35);
-var employee3 = new Employee("Liam", "Brown", 23);
-var employees = new List<Employee> { employee1, employee2, employee3 };
+var employee = new Employee("Benjamin", "Smith");
+employee.AddGrade(100);
+employee.AddGrade(90);
+employee.AddGrade(91);
+employee.AddGrade(35);
+var stats = employee.GetStatistics();
 
-employee1.AddGrade(10);
-employee1.AddGrade(9);
-employee1.AddGrade(8);
-employee1.AddGrade(9);
-employee1.AddGrade(5);
-
-employee2.AddGrade(10);
-employee2.AddGrade(9);
-employee2.AddGrade(9);
-employee2.AddGrade(10);
-employee2.AddGrade(8);
-
-employee3.AddGrade(9);
-employee3.AddGrade(7);
-employee3.AddGrade(9);
-employee3.AddGrade(9);
-employee3.AddGrade(8);
-
-var employeeWithMaxScore = GetEmployeeWithMaxScore(employees);
-
-Console.WriteLine($"Employee with the highest grade is {employeeWithMaxScore.Name}" +
-                  $"{employeeWithMaxScore.Surname} - {employeeWithMaxScore.Result} points");
-
-static Employee GetEmployeeWithMaxScore(List<Employee> employees)
-{
-    var maxResult = 0;
-    Employee employeeWithMaxScore = null!;
-
-    foreach (var employee in employees)
-    {
-        maxResult = Math.Max(employee.Result, maxResult);
-        if (maxResult == employee.Result)
-        {
-            employeeWithMaxScore = employee;
-        }
-    }
-
-    return employeeWithMaxScore;
-}
+Console.WriteLine($"Average: {stats.Average:N2}");
+Console.WriteLine($"Min: {stats.Min}");
+Console.WriteLine($"Max: {stats.Max}");
