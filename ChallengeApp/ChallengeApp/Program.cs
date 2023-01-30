@@ -2,9 +2,9 @@
 
 var employee = new Employee("Benjamin", "Smith");
 employee.AddGrade(100);
-employee.AddGrade(90);
-employee.AddGrade(91);
-employee.AddGrade(35);
+employee.AddGrade(90.99f);
+employee.AddGrade(91.432f);
+employee.AddGrade(99.99f);
 var stats = employee.GetStatistics();
 
 Console.WriteLine($"Average: {stats.Average:N2}");

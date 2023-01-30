@@ -1,8 +1,10 @@
-﻿namespace ChallengeApp
+﻿using Microsoft.VisualBasic;
+
+namespace ChallengeApp
 {
     public class Employee
     {
-        private List<int> grades = new();
+        private List<float> grades = new();
         public Employee(string name, string surname)
         {
             Name = name;
@@ -12,9 +14,34 @@
         public string Name { get; private set; }
         public string Surname { get; private set; }
 
+        public void AddGrade(float grade)
+        {
+            if (grade > 0 && grade <= 100)
+            {
+                grades.Add(grade);
+            }
+            else
+            {
+                Console.WriteLine("Invalid grade!");
+            }
+        }
+
         public void AddGrade(int grade)
         {
-            grades.Add(grade);
+            var gradeFloat = (float) grade;
+            grades.Add(gradeFloat);
+        }
+
+        public void AddGrade(string grade)
+        {
+            if (float.TryParse(grade, out float result))
+            {
+                this.AddGrade(result);
+            }
+            else
+            {
+                Console.WriteLine("String is not float number.");
+            }
         }
 
         public Statistics GetStatistics()
