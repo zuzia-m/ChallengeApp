@@ -15,7 +15,7 @@ namespace ChallengeApp.Tests
             employee.AddGrade(100);
 
             // Act
-            var stats = employee.GetStatistics();
+            var stats = employee.GetStatisticsWithForEach();
 
             // Assert
             Assert.AreEqual(80, stats.Min);
