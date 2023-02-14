@@ -1,14 +1,13 @@
 ﻿namespace ChallengeApp
 {
-    public class Employee : Person, IEmployee
+    public class EmployeeInMemory : EmployeeBase
     {
         private List<float> grades = new();
-
-        public Employee(string name, string surname): base(name, surname)
+        public EmployeeInMemory(string name, string surname) : base(name, surname)
         {
         }
 
-        public void AddGrade(float grade)
+        public override void AddGrade(float grade)
         {
             if (grade > 0 && grade <= 100)
             {
@@ -16,11 +15,11 @@
             }
             else
             {
-                throw new Exception("Invalid grade!");
+                throw new Exception($"Invalid argument: {nameof(grade)}. Only grades from 1 to 100 are allowed!");
             }
         }
 
-        public void AddGrade(string grade)
+        public override void AddGrade(string grade)
         {
             if (float.TryParse(grade, out float result))
             {
@@ -32,7 +31,7 @@
             }
         }
 
-        public void AddGrade(char grade)
+        public override void AddGrade(char grade)
         {
             switch (grade)
             {
@@ -56,7 +55,7 @@
             }
         }
 
-        public Statistics GetStatistics()
+        public override Statistics GetStatistics()
         {
             var stats = new Statistics();
             stats.Average = 0;
