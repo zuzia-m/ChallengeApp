@@ -1,10 +1,9 @@
 ﻿namespace ChallengeApp
 {
-    public class Employee : Person, IEmployee
+    public class Supervisor : Person, IEmployee
     {
         private List<float> grades = new();
-
-        public Employee(string name, string surname): base(name, surname)
+        public Supervisor(string name, string surname) : base(name, surname)
         {
         }
 
@@ -20,21 +19,57 @@
             }
         }
 
-        public void AddGrade(int grade)
-        {
-            var gradeFloat = (float)grade;
-            grades.Add(gradeFloat);
-        }
-
         public void AddGrade(string grade)
         {
-            if (float.TryParse(grade, out float result))
+            switch (grade)
             {
-                this.AddGrade(result);
-            }
-            else
-            {
-                throw new Exception("String is not float number.");
+                case "6":
+                    AddGrade(100);
+                    break;
+                case "6-" or "-6":
+                    AddGrade(95);
+                    break;
+                case "5+" or "+5":
+                    AddGrade(85);
+                    break;
+                case "5":
+                    AddGrade(80);
+                    break;
+                case "5-" or "-5":
+                    AddGrade(75);
+                    break;
+                case "4+" or "+4":
+                    AddGrade(65);
+                    break;
+                case "4":
+                    AddGrade(60);
+                    break;
+                case "4-" or "-4":
+                    AddGrade(55);
+                    break;
+                case "3+" or "+3":
+                    AddGrade(45);
+                    break;
+                case "3":
+                    AddGrade(40);
+                    break;
+                case "3-" or "-3":
+                    AddGrade(35);
+                    break;
+                case "2+" or "+2":
+                    AddGrade(25);
+                    break;
+                case "2":
+                    AddGrade(20);
+                    break;
+                case "2-" or "-2":
+                    AddGrade(15);
+                    break;
+                case "1":
+                    AddGrade(0);
+                    break;
+                default:
+                    throw new Exception("Wrong grade!");
             }
         }
 
