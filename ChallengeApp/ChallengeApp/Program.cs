@@ -12,7 +12,6 @@ employee.AddGrade(101f);
 employee.AddGrade(85.5f);
 employee.AddGrade(30);
 employee.AddGrade(55);
-Console.WriteLine("wft");
 var statistics = employee.GetStatistics();
 Console.WriteLine("Statistics:");
 Console.WriteLine($"Average: {statistics.Average:N2}");
