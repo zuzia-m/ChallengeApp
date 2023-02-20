@@ -8,7 +8,7 @@ namespace ChallengeApp.Tests
         public void GetStatistics_ReturnsCorrectResult()
         {
             // Arrange
-            var employee = new Employee("Lionel", "Messi");
+            var employee = new EmployeeInMemory("Lionel", "Messi");
             employee.AddGrade(80);
             employee.AddGrade(90);
             employee.AddGrade(99);
