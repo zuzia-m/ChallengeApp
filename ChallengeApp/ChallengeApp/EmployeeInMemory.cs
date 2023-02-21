@@ -65,36 +65,10 @@
         public override Statistics GetStatistics()
         {
             var stats = new Statistics();
-            stats.Average = 0;
-            stats.Max = float.MinValue;
-            stats.Min = float.MaxValue;
 
             foreach (var grade in grades)
             {
-                stats.Max = Math.Max(stats.Max, grade);
-                stats.Min = Math.Min(stats.Min, grade);
-                stats.Average += grade;
-            }
-
-            stats.Average /= grades.Count;
-
-            switch (stats.Average)
-            {
-                case >= 80:
-                    stats.AverageLetter = 'A';
-                    break;
-                case >= 60:
-                    stats.AverageLetter = 'B';
-                    break;
-                case >= 40:
-                    stats.AverageLetter = 'C';
-                    break;
-                case >= 20:
-                    stats.AverageLetter = 'D';
-                    break;
-                default:
-                    stats.AverageLetter = 'E';
-                    break;
+                stats.Add(grade);
             }
 
             return stats;

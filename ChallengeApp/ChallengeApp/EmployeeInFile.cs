@@ -45,51 +45,21 @@ namespace ChallengeApp
 
         public override Statistics GetStatistics()
         {
-            var stats = new Statistics();
-
-            if (File.Exists(fileName))
+            var result = new Statistics();
+            if (File.Exists($"{fileName}"))
             {
-                stats.Average = 0;
-                stats.Max = float.MinValue;
-                stats.Min = float.MaxValue;
-                int count = 0;
-
-                using (var reader = File.OpenText(fileName))
+                using (var reader = File.OpenText($"{fileName}"))
                 {
                     var line = reader.ReadLine();
                     while (line != null)
                     {
                         var grade = float.Parse(line);
-                        stats.Max = Math.Max(stats.Max, grade);
-                        stats.Min = Math.Min(stats.Min, grade);
-                        stats.Average += grade;
-                        count++;
+                        result.Add(grade);
                         line = reader.ReadLine();
                     }
                 }
-                stats.Average /= count;
-
-                switch (stats.Average)
-                {
-                    case >= 80:
-                        stats.AverageLetter = 'A';
-                        break;
-                    case >= 60:
-                        stats.AverageLetter = 'B';
-                        break;
-                    case >= 40:
-                        stats.AverageLetter = 'C';
-                        break;
-                    case >= 20:
-                        stats.AverageLetter = 'D';
-                        break;
-                    default:
-                        stats.AverageLetter = 'E';
-                        break;
-                }
             }
-
-            return stats;
+            return result;
         }
     }
 }
