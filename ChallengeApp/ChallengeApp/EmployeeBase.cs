@@ -16,9 +16,41 @@
 
         public abstract void AddGrade(float grade);
 
-        public abstract void AddGrade(string grade);
+        public void AddGrade(string grade)
+        {
+            if (float.TryParse(grade, out float result))
+            {
+                this.AddGrade(result);
+            }
+            else
+            {
+                throw new Exception("String is not float number.");
+            }
+        }
 
-        public abstract void AddGrade(char grade);
+        public void AddGrade(char grade)
+        {
+            switch (grade)
+            {
+                case 'A' or 'a':
+                    AddGrade(100);
+                    break;
+                case 'B' or 'b':
+                    AddGrade(80);
+                    break;
+                case 'C' or 'c':
+                    AddGrade(60);
+                    break;
+                case 'D' or 'd':
+                    AddGrade(40);
+                    break;
+                case 'E' or 'e':
+                    AddGrade(20);
+                    break;
+                default:
+                    throw new Exception("Wrong letter!");
+            }
+        }
 
         public abstract Statistics GetStatistics();
     }

@@ -1,8 +1,4 @@
-﻿using System.Diagnostics;
-using System.IO.Enumeration;
-using System.Numerics;
-
-namespace ChallengeApp
+﻿namespace ChallengeApp
 {
     public class EmployeeInFile : EmployeeBase
     {
@@ -31,16 +27,6 @@ namespace ChallengeApp
             {
                 throw new ArgumentException($"Invalid argument: {nameof(grade)}. Only grades from 1 to 100 are allowed!");
             }
-        }
-
-        public override void AddGrade(string grade)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void AddGrade(char grade)
-        {
-            throw new NotImplementedException();
         }
 
         public override Statistics GetStatistics()

@@ -26,42 +26,6 @@
             }
         }
 
-        public override void AddGrade(string grade)
-        {
-            if (float.TryParse(grade, out float result))
-            {
-                this.AddGrade(result);
-            }
-            else
-            {
-                throw new Exception("String is not float number.");
-            }
-        }
-
-        public override void AddGrade(char grade)
-        {
-            switch (grade)
-            {
-                case 'A' or 'a':
-                    this.grades.Add(100);
-                    break;
-                case 'B' or 'b':
-                    this.grades.Add(80);
-                    break;
-                case 'C' or 'c':
-                    this.grades.Add(60);
-                    break;
-                case 'D' or 'd':
-                    this.grades.Add(40);
-                    break;
-                case 'E' or 'e':
-                    this.grades.Add(20);
-                    break;
-                default:
-                    throw new Exception("Wrong letter!");
-            }
-        }
-
         public override Statistics GetStatistics()
         {
             var stats = new Statistics();
