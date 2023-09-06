@@ -30,9 +30,9 @@
         {
             var stats = new Statistics();
 
-            foreach (var grade in grades)
+            foreach (var grade in this.grades)
             {
-                stats.Add(grade);
+                stats.Calculate(grade);
             }
 
             return stats;

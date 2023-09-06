@@ -22,9 +22,13 @@
             {
                 this.AddGrade(result);
             }
+            else if(char.TryParse(grade, out char charResult))
+            {
+                this.AddGrade(charResult);
+            }
             else
             {
-                throw new Exception("String is not float number.");
+                throw new Exception("String is not float number or char letter.");
             }
         }
 

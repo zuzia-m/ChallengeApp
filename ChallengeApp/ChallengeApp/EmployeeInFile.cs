@@ -40,7 +40,7 @@
                     while (line != null)
                     {
                         var grade = float.Parse(line);
-                        result.Add(grade);
+                        result.Calculate(grade);
                         line = reader.ReadLine();
                     }
                 }

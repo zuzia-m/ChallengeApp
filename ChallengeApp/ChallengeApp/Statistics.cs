@@ -41,7 +41,7 @@
             Min = float.MaxValue;
         }
 
-        public void Add(float grade)
+        public void Calculate(float grade)
         {
             Sum += grade;
             Count++;
