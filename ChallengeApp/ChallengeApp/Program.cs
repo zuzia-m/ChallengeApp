@@ -3,7 +3,8 @@
 var employee1 = new Employee("Benjamin", "Smith", 41);
 var employee2 = new Employee("Susan ", "Williams", 35);
 var employee3 = new Employee("Liam", "Brown", 23);
-var employees = new List<Employee> { employee1, employee2, employee3 };
+var employee4 = new Employee("Travis", "Kelce", 34);
+var employees = new List<Employee> { employee1, employee2, employee3, employee4};
 
 employee1.AddGrade(10);
 employee1.AddGrade(9);
@@ -17,16 +18,29 @@ employee2.AddGrade(9);
 employee2.AddGrade(10);
 employee2.AddGrade(8);
 
+employee3.AddGrade(10);
 employee3.AddGrade(9);
-employee3.AddGrade(7);
 employee3.AddGrade(9);
-employee3.AddGrade(9);
+employee3.AddGrade(10);
 employee3.AddGrade(8);
 
-var employeeWithMaxScore = GetEmployeeWithMaxScore(employees);
+employee4.AddGrade(10);
+employee4.AddGrade(9);
+employee4.AddGrade(9);
+employee4.AddGrade(10);
+employee4.AddGrade(1);
 
-Console.WriteLine($"Employee with the highest grade is {employeeWithMaxScore.Name}" +
+//var employeeWithMaxScore = GetEmployeeWithMaxScore(employees);
+
+//Console.WriteLine($"Employee with the highest grade is {employeeWithMaxScore.Name}" +
+//                  $"{employeeWithMaxScore.Surname} - {employeeWithMaxScore.Result} points");
+
+var employeesWithMaxScore = GetEmployeesWithMaxScore(employees);
+foreach (var employeeWithMaxScore in employeesWithMaxScore)
+{
+    Console.WriteLine($"Employee with the highest grade is {employeeWithMaxScore.Name}" +
                   $"{employeeWithMaxScore.Surname} - {employeeWithMaxScore.Result} points");
+}
 
 static Employee GetEmployeeWithMaxScore(List<Employee> employees)
 {
@@ -43,4 +57,28 @@ static Employee GetEmployeeWithMaxScore(List<Employee> employees)
     }
 
     return employeeWithMaxScore;
+}
+
+static List<Employee> GetEmployeesWithMaxScore(List<Employee> employees)
+{
+    var maxResult = 0;
+    List<Employee> employeesWithMaxScore = new();
+
+    foreach (var employee in employees)
+    {
+        if (maxResult < employee.Result)
+        {
+            employeesWithMaxScore = new();
+        }
+        maxResult = Math.Max(employee.Result, maxResult);
+
+        //employeesWithMaxScore.RemoveAll(x => x.Result < maxResult);
+
+        if (maxResult == employee.Result)
+        {
+            employeesWithMaxScore.Add(employee);
+        }
+    }
+
+    return employeesWithMaxScore;
 }
