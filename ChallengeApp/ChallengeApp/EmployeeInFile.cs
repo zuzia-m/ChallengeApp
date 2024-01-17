@@ -9,6 +9,29 @@
         {
         }
 
+        public int GradesCount
+        {
+            get
+            {
+                if (File.Exists(fileName))
+                {
+                    using (StreamReader sr = new StreamReader(fileName))
+                    {
+                        var gradesCount = 0;
+
+                        while (sr.ReadLine() != null)
+                        {
+                            gradesCount++;
+                        }
+
+                        return gradesCount;
+                    }
+                }
+
+                return 0;
+            }
+        }
+
         public override void AddGrade(float grade)
         {
             if (grade > 0 && grade <= 100)
@@ -32,9 +55,9 @@
         public override Statistics GetStatistics()
         {
             var result = new Statistics();
-            if (File.Exists($"{fileName}"))
+            if (File.Exists(fileName))
             {
-                using (var reader = File.OpenText($"{fileName}"))
+                using (var reader = File.OpenText(fileName))
                 {
                     var line = reader.ReadLine();
                     while (line != null)

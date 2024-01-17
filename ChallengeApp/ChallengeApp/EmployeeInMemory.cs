@@ -9,6 +9,11 @@
         {
         }
 
+        public int GradesCount
+        {
+            get { return grades.Count; }
+        }
+
         public override void AddGrade(float grade)
         {
             if (grade > 0 && grade <= 100)

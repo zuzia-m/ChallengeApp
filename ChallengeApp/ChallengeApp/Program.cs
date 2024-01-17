@@ -7,7 +7,7 @@ var name = Console.ReadLine()!;
 Console.WriteLine("Type in Employee's surname:");
 var surname = Console.ReadLine()!;
 
-var employee = new EmployeeInMemory(name, surname);
+var employee = new EmployeeInFile(name, surname);
 employee.GradeAdded += EmployeeGradeAdded;
 
 while (true)
@@ -29,12 +29,16 @@ while (true)
     }
 }
 
-var statistics = employee.GetStatistics();
-Console.WriteLine("Statistics:");
-Console.WriteLine($"Average: {statistics.Average:N2}");
-Console.WriteLine($"Min: {statistics.Min}");
-Console.WriteLine($"Max: {statistics.Max}");
-Console.WriteLine($"Average Letter: {statistics.AverageLetter}");
+if (employee.GradesCount > 0)
+{
+    var statistics = employee.GetStatistics();
+    Console.WriteLine("Statistics:");
+    Console.WriteLine($"Average: {statistics.Average:N2}");
+    Console.WriteLine($"Min: {statistics.Min}");
+    Console.WriteLine($"Max: {statistics.Max}");
+    Console.WriteLine($"Average Letter: {statistics.AverageLetter}");
+}
+
 
 void EmployeeGradeAdded(object sender, EventArgs args)
 {
