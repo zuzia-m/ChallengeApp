@@ -1,10 +1,9 @@
 ﻿using ChallengeApp;
 
 var employee1 = new Employee("Benjamin", "Smith", 41);
-var employee2 = new Employee("Susan ", "Williams", 35);
+var employee2 = new Employee("Susan", "Williams", 35);
 var employee3 = new Employee("Liam", "Brown", 23);
-var employee4 = new Employee("Travis", "Kelce", 34);
-var employees = new List<Employee> { employee1, employee2, employee3, employee4};
+var employees = new List<Employee> { employee1, employee2, employee3 };
 
 employee1.AddGrade(10);
 employee1.AddGrade(9);
@@ -22,25 +21,12 @@ employee3.AddGrade(10);
 employee3.AddGrade(9);
 employee3.AddGrade(9);
 employee3.AddGrade(10);
-employee3.AddGrade(8);
+employee3.AddGrade(7);
 
-employee4.AddGrade(10);
-employee4.AddGrade(9);
-employee4.AddGrade(9);
-employee4.AddGrade(10);
-employee4.AddGrade(1);
+var employeeWithMaxScore = GetEmployeeWithMaxScore(employees);
 
-//var employeeWithMaxScore = GetEmployeeWithMaxScore(employees);
-
-//Console.WriteLine($"Employee with the highest grade is {employeeWithMaxScore.Name}" +
-//                  $"{employeeWithMaxScore.Surname} - {employeeWithMaxScore.Result} points");
-
-var employeesWithMaxScore = GetEmployeesWithMaxScore(employees);
-foreach (var employeeWithMaxScore in employeesWithMaxScore)
-{
-    Console.WriteLine($"Employee with the highest grade is {employeeWithMaxScore.Name}" +
+Console.WriteLine($"Employee with the highest grade is {employeeWithMaxScore.Name} " +
                   $"{employeeWithMaxScore.Surname} - {employeeWithMaxScore.Result} points");
-}
 
 static Employee GetEmployeeWithMaxScore(List<Employee> employees)
 {
@@ -59,6 +45,45 @@ static Employee GetEmployeeWithMaxScore(List<Employee> employees)
     return employeeWithMaxScore;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//var employeesWithMaxScore = GetEmployeesWithMaxScore(employees);
+//foreach (var employeeWithMaxScore in employeesWithMaxScore)
+//{
+//    Console.WriteLine($"Employee with the highest grade is {employeeWithMaxScore.Name}" +
+//                      $"{employeeWithMaxScore.Surname} - {employeeWithMaxScore.Result} points");
+//}
+
+
+
 static List<Employee> GetEmployeesWithMaxScore(List<Employee> employees)
 {
     var maxResult = 0;
@@ -70,9 +95,9 @@ static List<Employee> GetEmployeesWithMaxScore(List<Employee> employees)
         {
             employeesWithMaxScore = new();
         }
-        maxResult = Math.Max(employee.Result, maxResult);
+        // maxResult = Math.Max(employee.Result, maxResult);
 
-        //employeesWithMaxScore.RemoveAll(x => x.Result < maxResult);
+        employeesWithMaxScore.RemoveAll(x => x.Result < maxResult);
 
         if (maxResult == employee.Result)
         {
