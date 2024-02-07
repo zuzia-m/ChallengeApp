@@ -7,8 +7,8 @@ var employees = new List<Employee> { employee1, employee2, employee3 };
 
 employee1.AddGrade(10);
 employee1.AddGrade(9);
-employee1.AddGrade(8);
 employee1.AddGrade(9);
+employee1.AddGrade(10);
 employee1.AddGrade(5);
 
 employee2.AddGrade(10);
