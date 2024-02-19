@@ -28,12 +28,43 @@ namespace ChallengeApp
 
         public override void AddGrade(string grade)
         {
-            throw new NotImplementedException();
+            if (float.TryParse(grade, out float result))
+            {
+                this.AddGrade(result);
+            }
+            else
+            {
+                throw new Exception("String is not float number.");
+            }
         }
 
         public override void AddGrade(char grade)
         {
-            throw new NotImplementedException();
+            switch (grade)
+            {
+                case 'A' or 'a':
+
+                    AddGrade(100);
+                    break;
+                case 'B' or 'b':
+
+                    AddGrade(80);
+                    break;
+                case 'C' or 'c':
+
+                    AddGrade(60);
+                    break;
+                case 'D' or 'd':
+
+                    AddGrade(40);
+                    break;
+                case 'E' or 'e':
+
+                    AddGrade(20);
+                    break;
+                default:
+                    throw new Exception("Wrong letter!");
+            }
         }
 
         public override Statistics GetStatistics()

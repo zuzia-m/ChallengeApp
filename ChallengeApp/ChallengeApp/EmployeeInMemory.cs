@@ -23,7 +23,7 @@
         {
             if (float.TryParse(grade, out float result))
             {
-                this.AddGrade(result);
+                AddGrade(result);
             }
             else
             {
@@ -36,19 +36,24 @@
             switch (grade)
             {
                 case 'A' or 'a':
-                    this.grades.Add(100);
+
+                    AddGrade(100);
                     break;
                 case 'B' or 'b':
-                    this.grades.Add(80);
+
+                    AddGrade(80);
                     break;
                 case 'C' or 'c':
-                    this.grades.Add(60);
+
+                    AddGrade(60);
                     break;
                 case 'D' or 'd':
-                    this.grades.Add(40);
+
+                    AddGrade(40);
                     break;
                 case 'E' or 'e':
-                    this.grades.Add(20);
+
+                    AddGrade(20);
                     break;
                 default:
                     throw new Exception("Wrong letter!");
