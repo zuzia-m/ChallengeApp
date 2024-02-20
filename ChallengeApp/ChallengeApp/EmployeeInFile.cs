@@ -43,23 +43,18 @@ namespace ChallengeApp
             switch (grade)
             {
                 case 'A' or 'a':
-
                     AddGrade(100);
                     break;
                 case 'B' or 'b':
-
                     AddGrade(80);
                     break;
                 case 'C' or 'c':
-
                     AddGrade(60);
                     break;
                 case 'D' or 'd':
-
                     AddGrade(40);
                     break;
                 case 'E' or 'e':
-
                     AddGrade(20);
                     break;
                 default:
