@@ -1,13 +1,10 @@
 ﻿using ChallengeApp;
 
 Console.WriteLine("Hello to the Employee Grades App!\n\n");
-Console.WriteLine("Test test test");
 Console.WriteLine("Type in Employee's name:");
 var name = Console.ReadLine()!;
 Console.WriteLine("Type in Employee's surname:");
 var surname = Console.ReadLine()!;
-
-Console.WriteLine("Test");
 
 var employee = new EmployeeInFile(name, surname);
 employee.GradeAdded += EmployeeGradeAdded;
