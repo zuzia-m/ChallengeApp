@@ -7,6 +7,8 @@ var name = Console.ReadLine()!;
 Console.WriteLine("Type in Employee's surname:");
 var surname = Console.ReadLine()!;
 
+Console.WriteLine("Test");
+
 var employee = new EmployeeInFile(name, surname);
 employee.GradeAdded += EmployeeGradeAdded;
 
