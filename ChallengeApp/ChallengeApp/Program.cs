@@ -1,7 +1,7 @@
 ﻿using ChallengeApp;
 
 Console.WriteLine("Hello to the Employee Grades App!\n\n");
-
+Console.WriteLine("Test test test");
 Console.WriteLine("Type in Employee's name:");
 var name = Console.ReadLine()!;
 Console.WriteLine("Type in Employee's surname:");
